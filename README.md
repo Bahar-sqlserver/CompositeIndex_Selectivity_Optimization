@@ -55,6 +55,9 @@ Execution Time: 1134 ms
 Logical Reads: 4606
 
 Physical Reads: 2
+**EXECUTION PLAN:**
+![EXEC](EXECPLAN_IX_WRONG.png)
+[EXEC](EXECPLAN_IX_WRONG.sqlplan)
 
 **Optimized Index:**
 ```sql
@@ -70,6 +73,10 @@ Execution Time: 493 ms
 Logical Reads: 4606
 
 Physical Reads: 2
+
+**EXECUTION PLAN:**
+![EXEC](EXECPLAN_IX_RIGHT.png)
+[EXEC](EXECPLAN_IX_RIGHT.sqlplan)
 
 Key Takeaways
 Column order in composite indexes > order of WHERE predicates
