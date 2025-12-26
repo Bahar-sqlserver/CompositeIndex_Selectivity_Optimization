@@ -36,9 +36,9 @@ GO
 1,000,000 records to simulate real-world conditions
 ShipCountry → Low selectivity ('USA', 'UK', 'Germany')
 EmployeeID → High selectivity (50 unique values)
+```SQL
 
 --Repititive Query:
-
 SELECT *
 FROM dbo.Orders
 WHERE ShipCountry = 'USA'
@@ -51,6 +51,7 @@ GO
 CREATE NONCLUSTERED INDEX IX_Wrong
 ON dbo.Orders (ShipCountry, EmployeeID);
 GO
+```
 
 Key Takeaways
 Column order in composite indexes > order of WHERE predicates
