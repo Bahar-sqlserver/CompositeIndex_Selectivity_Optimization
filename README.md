@@ -15,23 +15,19 @@ GO
 
 --Inserting Data
 
-DECLARE @i INT = 1;
-
-WHILE @i <= 1000000
-BEGIN
-    INSERT INTO dbo.Orders
-    VALUES (
-        CASE 
-            WHEN @i % 20 = 0 THEN 'USA'
-            WHEN @i % 20 = 1 THEN 'UK'
-            ELSE 'Germany'
-        END,
-        ABS(CHECKSUM(NEWID())) % 50 + 1,   -- EmployeeID
-        DATEADD(DAY, -(@i % 730), GETDATE())
-    );
-    SET @i += 1;
-END
+INSERT INTO dbo.Orders (ShipCountry, EmployeeID, OrderDate)
+SELECT TOP (1000000)
+    CASE 
+        WHEN ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) % 20 = 0 THEN 'USA'
+        WHEN ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) % 20 = 1 THEN 'UK'
+        ELSE 'Germany'
+    END,
+    ABS(CHECKSUM(NEWID())) % 50 + 1,   -- EmployeeID
+    DATEADD(DAY, -(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) % 730), GETDATE())
+FROM master..spt_values a
+CROSS JOIN master..spt_values b;
 GO
+
 ```
 1,000,000 records to simulate real-world conditions
 ShipCountry → Low selectivity ('USA', 'UK', 'Germany')
