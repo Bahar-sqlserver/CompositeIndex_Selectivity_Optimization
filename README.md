@@ -48,6 +48,22 @@ CREATE NONCLUSTERED INDEX IX_Wrong
 ON dbo.Orders (ShipCountry, EmployeeID);
 GO
 ```
+**Query Execution Metrics:**
+Execution Time: 1134 ms
+Logical Reads: 4606
+Physical Reads: 2
+
+**Optimized Index:**
+```sql
+DROP INDEX IF EXISTS IX_Right ON dbo.Orders;
+GO
+CREATE NONCLUSTERED INDEX IX_Right
+ON dbo.Orders (EmployeeID, ShipCountry);
+```
+**Query Execution Metrics:**
+Execution Time: 493 ms
+Logical Reads: 4606
+Physical Reads: 2
 
 Key Takeaways
 Column order in composite indexes > order of WHERE predicates
