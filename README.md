@@ -12,8 +12,9 @@ CREATE TABLE dbo.Orders (
     OrderDate DATE
 );
 GO
-
---Inserting Data
+**```**
+**Inserting Data**
+```sql
 DECLARE @i INT = 1;
 
 WHILE @i <= 1000000
@@ -32,14 +33,16 @@ BEGIN
 END
 GO
 
---Repititive Query:
+**```**
+**Repititive Query:**
+```sql
 SELECT *
 FROM dbo.Orders
 WHERE ShipCountry = 'USA'
 AND EmployeeID = 5;
 GO
-
---wrong Index:
+**```**
+**wrong Index:**
 DROP INDEX IF EXISTS IX_Wrong ON dbo.Orders;
 GO
 CREATE NONCLUSTERED INDEX IX_Wrong
