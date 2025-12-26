@@ -4,6 +4,7 @@ Fullscript:[script]()
 
 
 **Table Design:**
+```sql
 CREATE TABLE dbo.Orders (
     OrderID INT IDENTITY PRIMARY KEY,
     ShipCountry NVARCHAR(50),
