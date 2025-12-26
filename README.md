@@ -32,6 +32,10 @@ BEGIN
     SET @i += 1;
 END
 GO
+```
+1,000,000 records to simulate real-world conditions
+ShipCountry → Low selectivity ('USA', 'UK', 'Germany')
+EmployeeID → High selectivity (50 unique values)
 
 --Repititive Query:
 
@@ -48,5 +52,11 @@ CREATE NONCLUSTERED INDEX IX_Wrong
 ON dbo.Orders (ShipCountry, EmployeeID);
 GO
 
+Key Takeaways
+Column order in composite indexes > order of WHERE predicates
+High-selectivity columns first = better filtering & lower I/O
+Composite indexes can cover queries entirely → avoid lookups
+Execution plans reveal the dramatic impact of proper indexing
+Always analyze cardinality & selectivity before designing indexes
 
 
