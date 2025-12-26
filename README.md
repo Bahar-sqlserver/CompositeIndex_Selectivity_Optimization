@@ -1,7 +1,8 @@
 # CompositeIndex_Selectivity_Optimization
 ###**Analyzing the impact of composite index order on query performance using columns with different selectivity levels in SQL Server**
 Fullscript:[script]()
-**Table Design:** 
+**Table Design:**
+```sql
 CREATE TABLE dbo.Orders (
     OrderID INT IDENTITY PRIMARY KEY,
     ShipCountry NVARCHAR(50),
