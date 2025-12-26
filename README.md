@@ -13,7 +13,7 @@ CREATE TABLE dbo.Orders (
 );
 GO
 
-**Inserting Data**
+--Inserting Data
 
 DECLARE @i INT = 1;
 
@@ -33,15 +33,15 @@ BEGIN
 END
 GO
 
-**Repititive Query:**
-```sql
+--Repititive Query:
+
 SELECT *
 FROM dbo.Orders
 WHERE ShipCountry = 'USA'
 AND EmployeeID = 5;
 GO
 
-**wrong Index:**
+--wrong Index:
 DROP INDEX IF EXISTS IX_Wrong ON dbo.Orders;
 GO
 CREATE NONCLUSTERED INDEX IX_Wrong
