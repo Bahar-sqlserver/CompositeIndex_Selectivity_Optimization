@@ -4,7 +4,6 @@ Fullscript:[script]()
 
 
 **Table Design:**
-```sql
 CREATE TABLE dbo.Orders (
     OrderID INT IDENTITY PRIMARY KEY,
     ShipCountry NVARCHAR(50),
@@ -12,9 +11,9 @@ CREATE TABLE dbo.Orders (
     OrderDate DATE
 );
 GO
-**```**
+
 **Inserting Data**
-```sql
+
 DECLARE @i INT = 1;
 
 WHILE @i <= 1000000
@@ -33,7 +32,6 @@ BEGIN
 END
 GO
 
-**```**
 **Repititive Query:**
 ```sql
 SELECT *
@@ -41,7 +39,7 @@ FROM dbo.Orders
 WHERE ShipCountry = 'USA'
 AND EmployeeID = 5;
 GO
-**```**
+
 **wrong Index:**
 DROP INDEX IF EXISTS IX_Wrong ON dbo.Orders;
 GO
