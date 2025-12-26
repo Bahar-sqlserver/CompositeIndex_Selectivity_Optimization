@@ -49,8 +49,11 @@ ON dbo.Orders (ShipCountry, EmployeeID);
 GO
 ```
 **Query Execution Metrics:**
+
 Execution Time: 1134 ms
+
 Logical Reads: 4606
+
 Physical Reads: 2
 
 **Optimized Index:**
@@ -61,8 +64,11 @@ CREATE NONCLUSTERED INDEX IX_Right
 ON dbo.Orders (EmployeeID, ShipCountry);
 ```
 **Query Execution Metrics:**
+
 Execution Time: 493 ms
+
 Logical Reads: 4606
+
 Physical Reads: 2
 
 Key Takeaways
