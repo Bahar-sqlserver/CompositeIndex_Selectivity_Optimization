@@ -24,8 +24,8 @@ SELECT TOP (1000000)
     END,
     ABS(CHECKSUM(NEWID())) % 50 + 1,   -- EmployeeID
     DATEADD(DAY, -(ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) % 730), GETDATE())
-FROM master..spt_values a
-CROSS JOIN master..spt_values b;
+FROM master.sys.all_objects a
+CROSS JOIN master.sys.all_objects b;
 GO
 
 ```
